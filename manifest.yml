@@ -1,7 +1,7 @@
 applications:
-  - name: eva-webhook-adapter
+- name: eva-webhook-adapter
   buildpacks:
-  - java_buildpack
+  - java_buildpack_offline
   env:
-    WEBHOOK_TARGET_URL: FIXME
+    WEBHOOK_TARGET_URL: http://localhost:8080/v1/webhooks/incoming/webex-text
     WEBHOOK_TARGET_FORMAT: webex-text
