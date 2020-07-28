@@ -1,0 +1,7 @@
+applications:
+  - name: eva-webhook-adapter
+  buildpacks:
+  - java_buildpack
+  env:
+    WEBHOOK_TARGET_URL: FIXME
+    WEBHOOK_TARGET_FORMAT: webex-text

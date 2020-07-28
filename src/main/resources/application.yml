@@ -1,0 +1,5 @@
+
+config:
+  webhook:
+    url: ${WEBHOOK_TARGET_URL:http://localhost:8080/test/webex-text}
+    format: ${WEBHOOK_TARGET_FORMAT:webex-text}
