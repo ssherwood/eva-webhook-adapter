@@ -1,8 +1,7 @@
 # EVA Webhook Adapter
 
-A simple webhook adapter for EVA with built-in templates for
-WebEx Teams message [format](https://apphub.webex.com/teams/applications/incoming-webhooks-cisco-systems).  This
-templating approach should be extensible for other webhook formats as well.
+A simple webhook adapter for EVA with built-in templates for Webex Teams message [format](https://apphub.webex.com/teams/applications/incoming-webhooks-cisco-systems).
+This project uses a mustache templating approach and should be extensible for other webhook formats as well.
 
 ## Required Configuration
 
