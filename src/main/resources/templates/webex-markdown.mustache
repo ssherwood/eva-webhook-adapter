@@ -2,7 +2,8 @@
 
 * Subject: {{subject}}
 * Topic: {{topic}}
-* Level: {{metadata.level}}
-* Foundation: {{metadata.foundation}}
-* Job: {{metadata.job}}
 * Body: {{body}}
+* Metadata:
+{{#metadata.entrySet}}
+    ** {{key}}: {{value}}
+{{/metadata.entrySet}}
