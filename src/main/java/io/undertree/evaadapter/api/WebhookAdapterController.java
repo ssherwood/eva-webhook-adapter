@@ -1,5 +1,6 @@
 package io.undertree.evaadapter.api;
 
+import com.overzealous.remark.Remark;
 import com.samskivert.mustache.Mustache;
 import io.undertree.evaadapter.models.EventAlert;
 import io.undertree.evaadapter.models.WebexTeamsMarkdown;
@@ -24,6 +25,7 @@ public class WebhookAdapterController {
     final String webhookFormat;
     final RestTemplate restTemplate;
     final Mustache.Compiler mustacheCompiler;
+    final Remark remarkConverter = new Remark();
 
     @Autowired
     public WebhookAdapterController(@Value("${config.webhook.url}") String webhookUrl,
@@ -41,6 +43,11 @@ public class WebhookAdapterController {
     public ResponseEntity<?> webhookAdapter(@RequestBody EventAlert eventAlert) {
         log.debug("Event:" + eventAlert);
         log.debug("Webhook URL: " + webhookUrl);
+
+        if (eventAlert.getBody() != null) {
+            // attempt to convert the "body" block into markdown
+            eventAlert.setBody(remarkConverter.convertFragment(eventAlert.getBody()));
+        }
 
         Reader template = mustacheCompiler.loader.getTemplate(webhookFormat);
         String message = mustacheCompiler.compile(template).execute(eventAlert);

@@ -1,5 +1,5 @@
 
 config:
   webhook:
-    url: ${WEBHOOK_TARGET_URL:http://localhost:8080/v1/webhooks/incoming/webex-text}
-    format: ${WEBHOOK_TARGET_FORMAT:webex-text}
+    url: ${WEBHOOK_TARGET_URL:http://localhost:8080/v1/webhooks/incoming/webex-markdown}
+    format: ${WEBHOOK_TARGET_FORMAT:webex-markdown}
